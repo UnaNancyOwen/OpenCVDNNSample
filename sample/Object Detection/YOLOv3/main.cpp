@@ -35,7 +35,8 @@ int main( int argc, char* argv[] )
         cv::Mat frame;
         capture >> frame;
         if( frame.empty() ){
-            continue;
+            cv::waitKey( 0 );
+            break;
         }
         if( frame.channels() == 4 ){
             cv::cvtColor( frame, frame, cv::COLOR_BGRA2BGR );
