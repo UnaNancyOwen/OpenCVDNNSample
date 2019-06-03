@@ -28,3 +28,6 @@ Reference
 
 * OpenCV DNN Samples | GitHub  
   <https://github.com/opencv/opencv/tree/master/samples/dnn>
+
+* OpenCV Model Zoo | GitHub  
+  <https://github.com/opencv/open_model_zoo>
