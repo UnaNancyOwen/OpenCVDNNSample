@@ -18,6 +18,7 @@ set( OpenCV_DIR "C:/Program Files/opencv/build" CACHE PATH "Path to OpenCV confi
 find_package( OpenCV REQUIRED )
 
 if( OpenCV_FOUND )
+  # Additional Include Directories
   include_directories( ${OpenCV_INCLUDE_DIRS} )
 
   # Additional Dependencies

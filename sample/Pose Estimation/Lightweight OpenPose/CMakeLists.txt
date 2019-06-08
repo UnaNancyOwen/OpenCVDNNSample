@@ -25,6 +25,7 @@ set( InferenceEngine_DIR "C:/Program Files (x86)/IntelSWTools/openvino/inference
 find_package( InferenceEngine REQUIRED )
 
 if( OpenCV_FOUND AND InferenceEngine_FOUND )
+  # Additional Include Directories
   include_directories( ${OpenCV_INCLUDE_DIRS} )
   include_directories( ${InferenceEngine_INCLUDE_DIRS} )
 
