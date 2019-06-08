@@ -6,9 +6,12 @@ This sample program works on cross-platform (Windows, Linux).
 
 Environment
 -----------
-* Visual Studio 2015/2017 / GCC 4.9 (or later) 
-* OpenCV 4.0.0 (or later)
-* CMake 3.7.2 (latest release is preferred)
+* Visual Studio 2015/2017 / GCC 4.9 (or later)  
+* OpenCV 4.1.0 (or later)  
+* CMake 3.7.2 (latest release is preferred)  
+
+The some samples require OpenVINO Toolkit.  
+* OpenVINO Toolkit 2019 R1.1 (or later)  
 
 License
 -------
