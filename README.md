@@ -18,6 +18,9 @@ License
 Copyright &copy; 2019 Tsukasa SUGIURA  
 Distributed under the [MIT License](http://www.opensource.org/licenses/mit-license.php "MIT License | Open Source Initiative").
 
+The each pre-trained models (that automatically downloaded by CMake) has own license.  
+Please check the license of pre-trained models on distributor site.  
+
 Contact
 -------
 * Tsukasa Sugiura  
