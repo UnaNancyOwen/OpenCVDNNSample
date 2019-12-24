@@ -27,6 +27,14 @@ int main( int argc, char* argv[] )
         return -1;
     }
 
+    /*
+        Please see list of supported combinations backend/target.
+        https://docs.opencv.org/4.2.0/db/d30/classcv_1_1dnn_1_1Net.html#a9dddbefbc7f3defbe3eeb5dc3d3483f4
+    */
+
+    // Set Preferable Backend
+    net.setPreferableBackend( cv::dnn::DNN_BACKEND_OPENCV );
+
     // Set Preferable Target
     net.setPreferableTarget( cv::dnn::DNN_TARGET_CPU );
 
