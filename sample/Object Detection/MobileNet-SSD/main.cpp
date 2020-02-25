@@ -52,9 +52,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // MobileNet-SSD ( Scale : 2 / 255, Size : 300 x 300, Mean Subtraction : ( 127.5, 127.5, 127.5 ), Channels Order : BGR )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 300, 300 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 2 / 255.f, cv::Size( 300, 300 ), cv::Scalar( 127.5, 127.5, 127.5 ), false, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 2 / 255.f, cv::Size( 300, 300 ), cv::Scalar( 127.5, 127.5, 127.5 ), false, false );
 
         // Set Input Blob
         net.setInput( blob );

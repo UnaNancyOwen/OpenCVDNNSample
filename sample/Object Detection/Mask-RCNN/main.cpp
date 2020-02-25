@@ -52,9 +52,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // Mask-RCNN ( Scale : 1.f, Size : Free Size, Mean Subtraction : ( 0, 0, 0 ), Channels Order : RGB )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 640, 480 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( resize_frame.cols, resize_frame.rows ), cv::Scalar( 0, 0, 0 ), true, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( resize_frame.cols, resize_frame.rows ), cv::Scalar( 0, 0, 0 ), true, false );
 
         // Set Input Blob
         net.setInput( blob );

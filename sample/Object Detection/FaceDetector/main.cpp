@@ -58,9 +58,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // Face Detector ( Scale : 1.f, Size : 300 x 300, Mean Subtraction : ( 104, 177, 123 ), Channels Order : BGR )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 300, 300 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( 300, 300 ), cv::Scalar( 104, 177, 123 ), false, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( 300, 300 ), cv::Scalar( 104, 177, 123 ), false, false );
 
         // Set Input Blob
         net.setInput( blob );

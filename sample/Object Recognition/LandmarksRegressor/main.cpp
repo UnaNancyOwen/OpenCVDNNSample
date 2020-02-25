@@ -61,9 +61,7 @@ int main( int argc, char* argv[] )
             // Create Blob from Input Image
             // Landmarks Detector ( Scale : 1.f, Size : 48 x 48, Mean Subtraction : ( 0, 0, 0 ), Channels Order : BGR )
             // The input image for this model is a tightly cropped face. Please detect the face in some way before using this model.
-            cv::Mat resize_frame;
-            cv::resize( face_frame, resize_frame, cv::Size( 48, 48 ) );
-            cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( 48, 48 ), cv::Scalar(), false, false );
+            cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( 48, 48 ), cv::Scalar(), false, false );
 
             // Set Input Blob
             net.setInput( blob );

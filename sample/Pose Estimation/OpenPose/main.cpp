@@ -58,9 +58,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // OpenPose ( Scale : 1 / 255, Size : 368 x 368, Mean Subtraction : ( 0, 0, 0 ), Channels Order : BGR )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 368, 368 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f / 255.f, cv::Size( 368, 368 ), cv::Scalar( 0, 0, 0 ), false, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f / 255.f, cv::Size( 368, 368 ), cv::Scalar( 0, 0, 0 ), false, false );
 
         // Set Input Blob
         net.setInput( blob );

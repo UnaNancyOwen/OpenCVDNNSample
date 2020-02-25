@@ -53,9 +53,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // FCN8s ( Scale : 1.f, Size : 500 x 500, Mean Subtraction : ( 0, 0, 0 ), Channels Order : BGR )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 500, 500 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( 500, 500 ), cv::Scalar( 0, 0, 0 ), false, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( 500, 500 ), cv::Scalar( 0, 0, 0 ), false, false );
 
         // Set Input Blob
         net.setInput( blob );

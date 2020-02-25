@@ -57,9 +57,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // VGG16-SSD 300 ( Scale : 1.f, Size : 300 x 300, Mean Subtraction : ( 102.9801, 115.9465, 122.7717 ), Channels Order : BGR )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 300, 300 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( 300, 300 ), cv::Scalar( 102.9801, 115.9465, 122.7717 ), false, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( 300, 300 ), cv::Scalar( 102.9801, 115.9465, 122.7717 ), false, false );
 
         /*
         // VGG16-SSD 512 ( Scale : 1.f, Size : 512 x 512 Mean Subtraction : ( 102.9801, 115.9465, 122.7717 ), Channels Order : BGR )

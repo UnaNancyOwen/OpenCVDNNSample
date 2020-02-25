@@ -19,9 +19,7 @@ std::string estimate_gender( cv::dnn::Net& net, cv::Mat& frame )
 
     // Create Blob from Input Image
     // Gender-Net ( Scale : 1.f, Size : 227x227, Mean Subtraction : ( 78.4263377603, 87.7689143744, 114.895847746 ), Channels Order : BGR )
-    cv::Mat resize_frame;
-    cv::resize( frame, resize_frame, cv::Size( 227, 227 ) );
-    cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( 227, 227 ), cv::Scalar( 78.4263377603, 87.7689143744, 114.895847746 ), false, false );
+    cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( 227, 227 ), cv::Scalar( 78.4263377603, 87.7689143744, 114.895847746 ), false, false );
 
     // Set Input Blob
     net.setInput( blob );

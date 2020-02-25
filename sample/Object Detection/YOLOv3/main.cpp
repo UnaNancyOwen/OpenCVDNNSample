@@ -52,9 +52,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // YOLO v3 ( Scale : 1 / 255, Size : 416 x 416, Mean Subtraction : ( 0.0, 0.0, 0.0 ), Channels Order : RGB )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 416, 416 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1 / 255.f, cv::Size( 416, 416 ), cv::Scalar(), true, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1 / 255.f, cv::Size( 416, 416 ), cv::Scalar(), true, false );
 
         // Set Input Blob
         net.setInput( blob );

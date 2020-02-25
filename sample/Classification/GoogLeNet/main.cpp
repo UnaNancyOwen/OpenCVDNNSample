@@ -55,9 +55,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // GoogLeNet ( Scale : 1.f, Size : 224 x 224, Mean Subtraction : ( 104, 117, 123 ), Channels Order : BGR )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 224, 224 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( 224, 224 ), cv::Scalar( 104, 117, 123 ), false, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( 224, 224 ), cv::Scalar( 104, 117, 123 ), false, false );
 
         // Set Input Blob
         net.setInput( blob );

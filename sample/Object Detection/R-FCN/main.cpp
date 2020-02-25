@@ -52,9 +52,7 @@ int main( int argc, char* argv[] )
 
         // Create Blob from Input Image
         // R-FCN ( Scale : 1.f, Size : 800 x 600, Mean Subtraction : ( 102.9801, 115.9465, 122.7717 ), Channels Order : BGR )
-        cv::Mat resize_frame;
-        cv::resize( frame, resize_frame, cv::Size( 800, 600 ) );
-        cv::Mat blob = cv::dnn::blobFromImage( resize_frame, 1.f, cv::Size( 800, 600 ), cv::Scalar( 102.9801, 115.9465, 122.7717 ), false, false );
+        cv::Mat blob = cv::dnn::blobFromImage( frame, 1.f, cv::Size( 800, 600 ), cv::Scalar( 102.9801, 115.9465, 122.7717 ), false, false );
 
         // Set Input Blob
         net.setInput( blob );
