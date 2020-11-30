@@ -62,6 +62,7 @@ int main( int argc, char* argv[] )
         net.forward( detections, getOutputsNames( net ) );
 
         // Draw Region
+        std::vector<int32_t> class_ids; std::vector<float> confidences; std::vector<cv::Rect> rectangles;
         for( cv::Mat& detection : detections ){
             for( int32_t i = 0; i < detection.rows; i++ ){
                 // Retrieve Region
@@ -90,11 +91,26 @@ int main( int argc, char* argv[] )
                 const int32_t height   = static_cast<int32_t>( region.at<float>( 3 ) * frame.rows );
                 const cv::Rect rectangle  = cv::Rect( x_center - ( width / 2 ), y_center - ( height / 2 ), width, height );
 
-                // Draw Rectangle
-                const cv::Scalar color = colors[class_id.x];
-                constexpr int32_t thickness = 3;
-                cv::rectangle( frame, rectangle, color, thickness );
+                // Add Class ID, Confidence, Rectangle
+                class_ids.push_back( class_id.x );
+                confidences.push_back( confidence );
+                rectangles.push_back( rectangle );
             }
+        }
+
+        // Remove Overlap Rectangles using Non-Maximum Suppression
+        constexpr float confidence_threshold = 0.5; // Confidence
+        constexpr float nms_threshold = 0.5; // IoU (Intersection over Union)
+        std::vector<int32_t> indices;
+        cv::dnn::NMSBoxes( rectangles, confidences, confidence_threshold, nms_threshold, indices );
+
+        // Draw Rectangle
+        for( const int32_t& index : indices )
+        {
+            const cv::Rect rectangle = rectangles[index];
+            const cv::Scalar color = colors[class_ids[index]];
+            constexpr int32_t thickness = 3;
+            cv::rectangle( frame, rectangle, color, thickness );
         }
 
         // Show Image
