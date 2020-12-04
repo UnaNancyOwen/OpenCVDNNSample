@@ -1,0 +1,3 @@
+This model (model-f46da743.onnx) is a model that has been converted from the original PyTorch model (model-f6b98070.pt).
+Please see more detail.
+https://github.com/intel-isl/MiDaS/tree/master/tf#make-onnx-model-from-downloaded-pytorch-model-file
