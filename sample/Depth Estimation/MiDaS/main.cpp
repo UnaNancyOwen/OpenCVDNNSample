@@ -16,7 +16,8 @@ int main( int argc, char* argv[] )
     }
 
     // Read Network
-    const std::string model = "../model-f46da743.onnx";
+    const std::string model = "../model-f6b98070.onnx"; // MiDaS v2.1 Large
+    //const std::string model = "../model-small.onnx"; // MiDaS v2.1 Small
     cv::dnn::Net net = cv::dnn::readNet( model );
     if( net.empty() )
     {
@@ -40,8 +41,10 @@ int main( int argc, char* argv[] )
         }
 
         // Create Blob from Input Image
-        // MiDaS ( Scale : 1 / 255, Size : 384 x 384, Mean Subtraction : ( 123.675, 116.28, 103.53 ), Channels Order : RGB )
+        // MiDaS v2.1 Large ( Scale : 1 / 255, Size : 384 x 384, Mean Subtraction : ( 123.675, 116.28, 103.53 ), Channels Order : RGB )
         cv::Mat blob = cv::dnn::blobFromImage( input, 1 / 255.f, cv::Size( 384, 384 ), cv::Scalar( 123.675, 116.28, 103.53 ), true, false );
+        // MiDaS v2.1 Small ( Scale : 1 / 255, Size : 256 x 256, Mean Subtraction : ( 123.675, 116.28, 103.53 ), Channels Order : RGB )
+        //cv::Mat blob = cv::dnn::blobFromImage( input, 1 / 255.f, cv::Size( 256, 256 ), cv::Scalar( 123.675, 116.28, 103.53 ), true, false );
 
         // Set Input Blob
         net.setInput( blob );
