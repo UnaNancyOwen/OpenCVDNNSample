@@ -17,7 +17,6 @@ set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "LightweightOpenPose" )
 # Find Package
 message( WARNING "This sample requere OpenCV, and Intel Inference Engine (OpenVINO)." )
 # OpenCV
-set( OpenCV_DIR "C:/Program Files/opencv/build" CACHE PATH "Path to OpenCV config directory." )
 find_package( OpenCV REQUIRED )
 
 # Intel Inference Engine (OpenVINO)

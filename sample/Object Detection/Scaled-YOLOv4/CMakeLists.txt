@@ -14,7 +14,6 @@ set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "Scaled-YOLOv4" )
 
 # Find Package
 # OpenCV
-set( OpenCV_DIR "C:/Program Files/opencv/build" CACHE PATH "Path to OpenCV config directory." )
 find_package( OpenCV REQUIRED )
 
 if( OpenCV_FOUND )
