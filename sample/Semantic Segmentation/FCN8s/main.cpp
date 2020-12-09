@@ -102,13 +102,13 @@ int main( int argc, char* argv[] )
                 }
             }
 
+            // Resize Original Image
+            cv::resize( segmentation, segmentation, frame.size() );
+
             // Alpha Blending Image and Segmentation Map for Visualize
             constexpr double alpha = 0.1;
             constexpr double beta  = 1.0 - alpha;
-            cv::addWeighted( resize_frame, alpha, segmentation, beta, 0.0, resize_frame );
-
-            // Resize Original Image
-            cv::resize( resize_frame, frame, frame.size() );
+            cv::addWeighted( frame, alpha, segmentation, beta, 0.0, frame );
         }
 
         // Show Image
