@@ -60,6 +60,7 @@ int main( int argc, char* argv[] )
     const bool        report = false;
     human_pose_estimation::HumanPoseEstimator estimator( config, device, report );
 
+    bool is_reshape = false;
     while( true ){
         // Read Frame
         cv::Mat frame;
@@ -72,8 +73,19 @@ int main( int argc, char* argv[] )
             cv::cvtColor( frame, frame, cv::COLOR_BGRA2BGR );
         }
 
+        // Reshape Network ( NOTE: Just First Once )
+        if( !is_reshape ){
+            estimator.reshape( frame );
+            is_reshape = true;
+        }
+
         // Estimate Human Pose
-        std::vector<human_pose_estimation::HumanPose> poses = estimator.estimate( frame );
+        estimator.frameToBlobCurr( frame );
+        estimator.startCurr();
+        estimator.waitCurr();
+
+        // Get Human Pose
+        std::vector<human_pose_estimation::HumanPose> poses = estimator.postprocessCurr();
 
         // Draw Estimated Human Pose
         // Color Table

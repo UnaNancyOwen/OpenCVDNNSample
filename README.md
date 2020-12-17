@@ -11,7 +11,7 @@ Environment
 * CMake 3.7.2 (latest release is preferred)  
 
 The some samples require OpenVINO Toolkit.  
-* OpenVINO Toolkit 2019 R1.1 (or later)  
+* OpenVINO Toolkit 2020.x (or later)  
 
 License
 -------

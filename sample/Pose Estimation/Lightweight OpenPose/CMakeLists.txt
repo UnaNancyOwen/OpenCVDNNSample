@@ -15,7 +15,7 @@ add_executable( LightweightOpenPose common.hpp human_pose.hpp human_pose.cpp hum
 set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "LightweightOpenPose" )
 
 # Find Package
-message( WARNING "This sample requere OpenCV, and Intel Inference Engine (OpenVINO)." )
+message( WARNING "This sample requere OpenCV, and Intel Inference Engine (OpenVINO 2020.x or later)." )
 # OpenCV
 find_package( OpenCV REQUIRED )
 
