@@ -1,0 +1,10 @@
+Acknowledgements
+----------------
+This is an MTCNN implementation based on the following repository.  
+Kapil Sachdeva (@ksachdeva), Thank you for your great job!  
+https://github.com/ksachdeva/opencv-mtcnn
+
+Original License
+----------------
+Apache License Version 2.0  
+https://github.com/ksachdeva/opencv-mtcnn/blob/master/LICENSE
