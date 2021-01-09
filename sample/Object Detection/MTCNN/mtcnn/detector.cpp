@@ -59,7 +59,7 @@ std::vector<mtcnn::Face> mtcnn::Detector::detect( const cv::Mat& image, const fl
         std::swap( face.rectangle.x1, face.rectangle.y1 );
         std::swap( face.rectangle.x2, face.rectangle.y2 );
         for( int32_t p = 0; p < mtcnn::NUM_POINTS; p++ ){
-            std::swap( face.points[2 * p], face.points[2 * p + 1] );
+            std::swap( face.points[p].x, face.points[p].y );
         }
     }
 

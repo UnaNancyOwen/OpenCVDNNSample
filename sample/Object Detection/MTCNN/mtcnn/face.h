@@ -17,6 +17,15 @@ namespace mtcnn
     constexpr int32_t NUM_REGRESSIONS = 4;
     constexpr int32_t NUM_POINTS = 5;
 
+    enum LandMark
+    {
+        EYE_RIGHT   = 0,
+        EYE_LEFT    = 1,
+        NOSE        = 2,
+        MOUSE_RIGHT = 3,
+        MOUSE_LEFT  = 4
+    };
+
     class BoundingBox
     {
         public:
@@ -45,13 +54,26 @@ namespace mtcnn
             }
     };
 
+    class Point
+    {
+        public:
+            float x;
+            float y;
+
+        public:
+            cv::Point getPoint() const
+            {
+                return cv::Point( static_cast<int32_t>( x ), static_cast<int32_t>( y ) );
+            }
+    };
+
     class Face
     {
         public:
             BoundingBox rectangle;
-            float score;
+            Point points[mtcnn::NUM_POINTS];
             float regression[mtcnn::NUM_REGRESSIONS];
-            float points[2 * mtcnn::NUM_POINTS];
+            float score;
 
         public:
             static void apply_regression( std::vector<mtcnn::Face>& faces, const bool add_one = false )

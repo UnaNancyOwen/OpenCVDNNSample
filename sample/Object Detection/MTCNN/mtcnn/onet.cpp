@@ -65,8 +65,8 @@ std::vector<mtcnn::Face> mtcnn::OutputNetwork::run( const cv::Mat& image, const 
         const float height = result.rectangle.y2 - result.rectangle.y1 + 1.0f;
 
         for( int32_t p = 0; p < mtcnn::NUM_POINTS; p++ ){
-            result.points[2 * p + 0] = result.rectangle.x1 + ( landmark_data[p + mtcnn::NUM_POINTS] * width ) - 1;
-            result.points[2 * p + 1] = result.rectangle.y1 + ( landmark_data[p] * height ) - 1;
+            result.points[p].x = result.rectangle.x1 + ( landmark_data[p + mtcnn::NUM_POINTS] * width ) - 1;
+            result.points[p].y = result.rectangle.y1 + ( landmark_data[p] * height ) - 1;
         }
 
         results.push_back( result );
