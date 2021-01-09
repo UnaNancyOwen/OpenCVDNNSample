@@ -59,7 +59,7 @@ int main( int argc, char* argv[] )
             cv::rectangle( frame, rectangle, color );
 
             for( int32_t i = 0; i < mtcnn::NUM_POINTS; i++ ){
-                const cv::Point point = { static_cast<int32_t>( face.points[2 * i] ), static_cast<int32_t>( face.points[2 * i + 1] ) };
+                const cv::Point point = face.points[i].getPoint();
                 constexpr int32_t radius = 3;
                 cv::circle( frame, point, radius, color );
             }
